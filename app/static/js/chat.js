@@ -9,7 +9,8 @@ window.chatClient = {
         chatRole = config.role;
         const token = config.token || '';
         // Build WebSocket URL with proper parameters
-        let wsUrl = `ws://${window.location.host}/ws/chat/${chatId}?role=${chatRole}`;
+        const protocol = window.location.protocol === "https:" ? "wss://" : "ws://";
+        let wsUrl = `${protocol}${window.location.host}/ws/chat/${chatId}?role=${chatRole}`;
         if (token) {
             wsUrl += `&token=${encodeURIComponent(token)}`;
         }

@@ -1,0 +1,992 @@
+<html lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Login | Chat Home Base</title>
+    <!-- <script defer="defer" src="/js/chunk-vendors.fc5b1320.js"></script>
+    <script defer="defer" src="/js/app.52c446fe.js"></script> -->
+    <link href="static/z/chunk-vendors.d8fdbab6.css" rel="stylesheet" />
+    <link href="static/z/app.0cdcc406.css" rel="stylesheet" />
+    <style
+      data-vue-meta="vuetify"
+      type="text/css"
+      id="vuetify-theme-stylesheet"
+      nonce="undefined"
+    >
+      .v-application a {
+        color: #28379e;
+      }
+      .v-application .primary {
+        background-color: #28379e !important;
+        border-color: #28379e !important;
+      }
+      .v-application .primary--text {
+        color: #28379e !important;
+        caret-color: #28379e !important;
+      }
+      .v-application .primary.lighten-5 {
+        background-color: #beb4ff !important;
+        border-color: #beb4ff !important;
+      }
+      .v-application .primary--text.text--lighten-5 {
+        color: #beb4ff !important;
+        caret-color: #beb4ff !important;
+      }
+      .v-application .primary.lighten-4 {
+        background-color: #a199ff !important;
+        border-color: #a199ff !important;
+      }
+      .v-application .primary--text.text--lighten-4 {
+        color: #a199ff !important;
+        caret-color: #a199ff !important;
+      }
+      .v-application .primary.lighten-3 {
+        background-color: #847ff2 !important;
+        border-color: #847ff2 !important;
+      }
+      .v-application .primary--text.text--lighten-3 {
+        color: #847ff2 !important;
+        caret-color: #847ff2 !important;
+      }
+      .v-application .primary.lighten-2 {
+        background-color: #6766d6 !important;
+        border-color: #6766d6 !important;
+      }
+      .v-application .primary--text.text--lighten-2 {
+        color: #6766d6 !important;
+        caret-color: #6766d6 !important;
+      }
+      .v-application .primary.lighten-1 {
+        background-color: #494eb9 !important;
+        border-color: #494eb9 !important;
+      }
+      .v-application .primary--text.text--lighten-1 {
+        color: #494eb9 !important;
+        caret-color: #494eb9 !important;
+      }
+      .v-application .primary.darken-1 {
+        background-color: #002283 !important;
+        border-color: #002283 !important;
+      }
+      .v-application .primary--text.text--darken-1 {
+        color: #002283 !important;
+        caret-color: #002283 !important;
+      }
+      .v-application .primary.darken-2 {
+        background-color: #000e69 !important;
+        border-color: #000e69 !important;
+      }
+      .v-application .primary--text.text--darken-2 {
+        color: #000e69 !important;
+        caret-color: #000e69 !important;
+      }
+      .v-application .primary.darken-3 {
+        background-color: #000051 !important;
+        border-color: #000051 !important;
+      }
+      .v-application .primary--text.text--darken-3 {
+        color: #000051 !important;
+        caret-color: #000051 !important;
+      }
+      .v-application .primary.darken-4 {
+        background-color: #00003a !important;
+        border-color: #00003a !important;
+      }
+      .v-application .primary--text.text--darken-4 {
+        color: #00003a !important;
+        caret-color: #00003a !important;
+      }
+      .v-application .secondary {
+        background-color: #424242 !important;
+        border-color: #424242 !important;
+      }
+      .v-application .secondary--text {
+        color: #424242 !important;
+        caret-color: #424242 !important;
+      }
+      .v-application .secondary.lighten-5 {
+        background-color: #c1c1c1 !important;
+        border-color: #c1c1c1 !important;
+      }
+      .v-application .secondary--text.text--lighten-5 {
+        color: #c1c1c1 !important;
+        caret-color: #c1c1c1 !important;
+      }
+      .v-application .secondary.lighten-4 {
+        background-color: #a6a6a6 !important;
+        border-color: #a6a6a6 !important;
+      }
+      .v-application .secondary--text.text--lighten-4 {
+        color: #a6a6a6 !important;
+        caret-color: #a6a6a6 !important;
+      }
+      .v-application .secondary.lighten-3 {
+        background-color: #8b8b8b !important;
+        border-color: #8b8b8b !important;
+      }
+      .v-application .secondary--text.text--lighten-3 {
+        color: #8b8b8b !important;
+        caret-color: #8b8b8b !important;
+      }
+      .v-application .secondary.lighten-2 {
+        background-color: #727272 !important;
+        border-color: #727272 !important;
+      }
+      .v-application .secondary--text.text--lighten-2 {
+        color: #727272 !important;
+        caret-color: #727272 !important;
+      }
+      .v-application .secondary.lighten-1 {
+        background-color: #595959 !important;
+        border-color: #595959 !important;
+      }
+      .v-application .secondary--text.text--lighten-1 {
+        color: #595959 !important;
+        caret-color: #595959 !important;
+      }
+      .v-application .secondary.darken-1 {
+        background-color: #2c2c2c !important;
+        border-color: #2c2c2c !important;
+      }
+      .v-application .secondary--text.text--darken-1 {
+        color: #2c2c2c !important;
+        caret-color: #2c2c2c !important;
+      }
+      .v-application .secondary.darken-2 {
+        background-color: #171717 !important;
+        border-color: #171717 !important;
+      }
+      .v-application .secondary--text.text--darken-2 {
+        color: #171717 !important;
+        caret-color: #171717 !important;
+      }
+      .v-application .secondary.darken-3 {
+        background-color: #000000 !important;
+        border-color: #000000 !important;
+      }
+      .v-application .secondary--text.text--darken-3 {
+        color: #000000 !important;
+        caret-color: #000000 !important;
+      }
+      .v-application .secondary.darken-4 {
+        background-color: #000000 !important;
+        border-color: #000000 !important;
+      }
+      .v-application .secondary--text.text--darken-4 {
+        color: #000000 !important;
+        caret-color: #000000 !important;
+      }
+      .v-application .accent {
+        background-color: #82b1ff !important;
+        border-color: #82b1ff !important;
+      }
+      .v-application .accent--text {
+        color: #82b1ff !important;
+        caret-color: #82b1ff !important;
+      }
+      .v-application .accent.lighten-5 {
+        background-color: #ffffff !important;
+        border-color: #ffffff !important;
+      }
+      .v-application .accent--text.text--lighten-5 {
+        color: #ffffff !important;
+        caret-color: #ffffff !important;
+      }
+      .v-application .accent.lighten-4 {
+        background-color: #f8ffff !important;
+        border-color: #f8ffff !important;
+      }
+      .v-application .accent--text.text--lighten-4 {
+        color: #f8ffff !important;
+        caret-color: #f8ffff !important;
+      }
+      .v-application .accent.lighten-3 {
+        background-color: #daffff !important;
+        border-color: #daffff !important;
+      }
+      .v-application .accent--text.text--lighten-3 {
+        color: #daffff !important;
+        caret-color: #daffff !important;
+      }
+      .v-application .accent.lighten-2 {
+        background-color: #bce8ff !important;
+        border-color: #bce8ff !important;
+      }
+      .v-application .accent--text.text--lighten-2 {
+        color: #bce8ff !important;
+        caret-color: #bce8ff !important;
+      }
+      .v-application .accent.lighten-1 {
+        background-color: #9fccff !important;
+        border-color: #9fccff !important;
+      }
+      .v-application .accent--text.text--lighten-1 {
+        color: #9fccff !important;
+        caret-color: #9fccff !important;
+      }
+      .v-application .accent.darken-1 {
+        background-color: #6596e2 !important;
+        border-color: #6596e2 !important;
+      }
+      .v-application .accent--text.text--darken-1 {
+        color: #6596e2 !important;
+        caret-color: #6596e2 !important;
+      }
+      .v-application .accent.darken-2 {
+        background-color: #467dc6 !important;
+        border-color: #467dc6 !important;
+      }
+      .v-application .accent--text.text--darken-2 {
+        color: #467dc6 !important;
+        caret-color: #467dc6 !important;
+      }
+      .v-application .accent.darken-3 {
+        background-color: #2364aa !important;
+        border-color: #2364aa !important;
+      }
+      .v-application .accent--text.text--darken-3 {
+        color: #2364aa !important;
+        caret-color: #2364aa !important;
+      }
+      .v-application .accent.darken-4 {
+        background-color: #004c90 !important;
+        border-color: #004c90 !important;
+      }
+      .v-application .accent--text.text--darken-4 {
+        color: #004c90 !important;
+        caret-color: #004c90 !important;
+      }
+      .v-application .error {
+        background-color: #ff5252 !important;
+        border-color: #ff5252 !important;
+      }
+      .v-application .error--text {
+        color: #ff5252 !important;
+        caret-color: #ff5252 !important;
+      }
+      .v-application .error.lighten-5 {
+        background-color: #ffe4d5 !important;
+        border-color: #ffe4d5 !important;
+      }
+      .v-application .error--text.text--lighten-5 {
+        color: #ffe4d5 !important;
+        caret-color: #ffe4d5 !important;
+      }
+      .v-application .error.lighten-4 {
+        background-color: #ffc6b9 !important;
+        border-color: #ffc6b9 !important;
+      }
+      .v-application .error--text.text--lighten-4 {
+        color: #ffc6b9 !important;
+        caret-color: #ffc6b9 !important;
+      }
+      .v-application .error.lighten-3 {
+        background-color: #ffa99e !important;
+        border-color: #ffa99e !important;
+      }
+      .v-application .error--text.text--lighten-3 {
+        color: #ffa99e !important;
+        caret-color: #ffa99e !important;
+      }
+      .v-application .error.lighten-2 {
+        background-color: #ff8c84 !important;
+        border-color: #ff8c84 !important;
+      }
+      .v-application .error--text.text--lighten-2 {
+        color: #ff8c84 !important;
+        caret-color: #ff8c84 !important;
+      }
+      .v-application .error.lighten-1 {
+        background-color: #ff6f6a !important;
+        border-color: #ff6f6a !important;
+      }
+      .v-application .error--text.text--lighten-1 {
+        color: #ff6f6a !important;
+        caret-color: #ff6f6a !important;
+      }
+      .v-application .error.darken-1 {
+        background-color: #df323b !important;
+        border-color: #df323b !important;
+      }
+      .v-application .error--text.text--darken-1 {
+        color: #df323b !important;
+        caret-color: #df323b !important;
+      }
+      .v-application .error.darken-2 {
+        background-color: #bf0025 !important;
+        border-color: #bf0025 !important;
+      }
+      .v-application .error--text.text--darken-2 {
+        color: #bf0025 !important;
+        caret-color: #bf0025 !important;
+      }
+      .v-application .error.darken-3 {
+        background-color: #9f0010 !important;
+        border-color: #9f0010 !important;
+      }
+      .v-application .error--text.text--darken-3 {
+        color: #9f0010 !important;
+        caret-color: #9f0010 !important;
+      }
+      .v-application .error.darken-4 {
+        background-color: #800000 !important;
+        border-color: #800000 !important;
+      }
+      .v-application .error--text.text--darken-4 {
+        color: #800000 !important;
+        caret-color: #800000 !important;
+      }
+      .v-application .info {
+        background-color: #2196f3 !important;
+        border-color: #2196f3 !important;
+      }
+      .v-application .info--text {
+        color: #2196f3 !important;
+        caret-color: #2196f3 !important;
+      }
+      .v-application .info.lighten-5 {
+        background-color: #d4ffff !important;
+        border-color: #d4ffff !important;
+      }
+      .v-application .info--text.text--lighten-5 {
+        color: #d4ffff !important;
+        caret-color: #d4ffff !important;
+      }
+      .v-application .info.lighten-4 {
+        background-color: #b5ffff !important;
+        border-color: #b5ffff !important;
+      }
+      .v-application .info--text.text--lighten-4 {
+        color: #b5ffff !important;
+        caret-color: #b5ffff !important;
+      }
+      .v-application .info.lighten-3 {
+        background-color: #95e8ff !important;
+        border-color: #95e8ff !important;
+      }
+      .v-application .info--text.text--lighten-3 {
+        color: #95e8ff !important;
+        caret-color: #95e8ff !important;
+      }
+      .v-application .info.lighten-2 {
+        background-color: #75ccff !important;
+        border-color: #75ccff !important;
+      }
+      .v-application .info--text.text--lighten-2 {
+        color: #75ccff !important;
+        caret-color: #75ccff !important;
+      }
+      .v-application .info.lighten-1 {
+        background-color: #51b0ff !important;
+        border-color: #51b0ff !important;
+      }
+      .v-application .info--text.text--lighten-1 {
+        color: #51b0ff !important;
+        caret-color: #51b0ff !important;
+      }
+      .v-application .info.darken-1 {
+        background-color: #007cd6 !important;
+        border-color: #007cd6 !important;
+      }
+      .v-application .info--text.text--darken-1 {
+        color: #007cd6 !important;
+        caret-color: #007cd6 !important;
+      }
+      .v-application .info.darken-2 {
+        background-color: #0064ba !important;
+        border-color: #0064ba !important;
+      }
+      .v-application .info--text.text--darken-2 {
+        color: #0064ba !important;
+        caret-color: #0064ba !important;
+      }
+      .v-application .info.darken-3 {
+        background-color: #004d9f !important;
+        border-color: #004d9f !important;
+      }
+      .v-application .info--text.text--darken-3 {
+        color: #004d9f !important;
+        caret-color: #004d9f !important;
+      }
+      .v-application .info.darken-4 {
+        background-color: #003784 !important;
+        border-color: #003784 !important;
+      }
+      .v-application .info--text.text--darken-4 {
+        color: #003784 !important;
+        caret-color: #003784 !important;
+      }
+      .v-application .success {
+        background-color: #4caf50 !important;
+        border-color: #4caf50 !important;
+      }
+      .v-application .success--text {
+        color: #4caf50 !important;
+        caret-color: #4caf50 !important;
+      }
+      .v-application .success.lighten-5 {
+        background-color: #dcffd6 !important;
+        border-color: #dcffd6 !important;
+      }
+      .v-application .success--text.text--lighten-5 {
+        color: #dcffd6 !important;
+        caret-color: #dcffd6 !important;
+      }
+      .v-application .success.lighten-4 {
+        background-color: #beffba !important;
+        border-color: #beffba !important;
+      }
+      .v-application .success--text.text--lighten-4 {
+        color: #beffba !important;
+        caret-color: #beffba !important;
+      }
+      .v-application .success.lighten-3 {
+        background-color: #a2ff9e !important;
+        border-color: #a2ff9e !important;
+      }
+      .v-application .success--text.text--lighten-3 {
+        color: #a2ff9e !important;
+        caret-color: #a2ff9e !important;
+      }
+      .v-application .success.lighten-2 {
+        background-color: #85e783 !important;
+        border-color: #85e783 !important;
+      }
+      .v-application .success--text.text--lighten-2 {
+        color: #85e783 !important;
+        caret-color: #85e783 !important;
+      }
+      .v-application .success.lighten-1 {
+        background-color: #69cb69 !important;
+        border-color: #69cb69 !important;
+      }
+      .v-application .success--text.text--lighten-1 {
+        color: #69cb69 !important;
+        caret-color: #69cb69 !important;
+      }
+      .v-application .success.darken-1 {
+        background-color: #2d9437 !important;
+        border-color: #2d9437 !important;
+      }
+      .v-application .success--text.text--darken-1 {
+        color: #2d9437 !important;
+        caret-color: #2d9437 !important;
+      }
+      .v-application .success.darken-2 {
+        background-color: #00791e !important;
+        border-color: #00791e !important;
+      }
+      .v-application .success--text.text--darken-2 {
+        color: #00791e !important;
+        caret-color: #00791e !important;
+      }
+      .v-application .success.darken-3 {
+        background-color: #006000 !important;
+        border-color: #006000 !important;
+      }
+      .v-application .success--text.text--darken-3 {
+        color: #006000 !important;
+        caret-color: #006000 !important;
+      }
+      .v-application .success.darken-4 {
+        background-color: #004700 !important;
+        border-color: #004700 !important;
+      }
+      .v-application .success--text.text--darken-4 {
+        color: #004700 !important;
+        caret-color: #004700 !important;
+      }
+      .v-application .warning {
+        background-color: #fb8c00 !important;
+        border-color: #fb8c00 !important;
+      }
+      .v-application .warning--text {
+        color: #fb8c00 !important;
+        caret-color: #fb8c00 !important;
+      }
+      .v-application .warning.lighten-5 {
+        background-color: #ffff9e !important;
+        border-color: #ffff9e !important;
+      }
+      .v-application .warning--text.text--lighten-5 {
+        color: #ffff9e !important;
+        caret-color: #ffff9e !important;
+      }
+      .v-application .warning.lighten-4 {
+        background-color: #fffb82 !important;
+        border-color: #fffb82 !important;
+      }
+      .v-application .warning--text.text--lighten-4 {
+        color: #fffb82 !important;
+        caret-color: #fffb82 !important;
+      }
+      .v-application .warning.lighten-3 {
+        background-color: #ffdf67 !important;
+        border-color: #ffdf67 !important;
+      }
+      .v-application .warning--text.text--lighten-3 {
+        color: #ffdf67 !important;
+        caret-color: #ffdf67 !important;
+      }
+      .v-application .warning.lighten-2 {
+        background-color: #ffc24b !important;
+        border-color: #ffc24b !important;
+      }
+      .v-application .warning--text.text--lighten-2 {
+        color: #ffc24b !important;
+        caret-color: #ffc24b !important;
+      }
+      .v-application .warning.lighten-1 {
+        background-color: #ffa72d !important;
+        border-color: #ffa72d !important;
+      }
+      .v-application .warning--text.text--lighten-1 {
+        color: #ffa72d !important;
+        caret-color: #ffa72d !important;
+      }
+      .v-application .warning.darken-1 {
+        background-color: #db7200 !important;
+        border-color: #db7200 !important;
+      }
+      .v-application .warning--text.text--darken-1 {
+        color: #db7200 !important;
+        caret-color: #db7200 !important;
+      }
+      .v-application .warning.darken-2 {
+        background-color: #bb5900 !important;
+        border-color: #bb5900 !important;
+      }
+      .v-application .warning--text.text--darken-2 {
+        color: #bb5900 !important;
+        caret-color: #bb5900 !important;
+      }
+      .v-application .warning.darken-3 {
+        background-color: #9d4000 !important;
+        border-color: #9d4000 !important;
+      }
+      .v-application .warning--text.text--darken-3 {
+        color: #9d4000 !important;
+        caret-color: #9d4000 !important;
+      }
+      .v-application .warning.darken-4 {
+        background-color: #802700 !important;
+        border-color: #802700 !important;
+      }
+      .v-application .warning--text.text--darken-4 {
+        color: #802700 !important;
+        caret-color: #802700 !important;
+      }
+      .v-application .ai {
+        background-color: #9760ff !important;
+        border-color: #9760ff !important;
+      }
+      .v-application .ai--text {
+        color: #9760ff !important;
+        caret-color: #9760ff !important;
+      }
+      .v-application .ai.lighten-5 {
+        background-color: #ffe9ff !important;
+        border-color: #ffe9ff !important;
+      }
+      .v-application .ai--text.text--lighten-5 {
+        color: #ffe9ff !important;
+        caret-color: #ffe9ff !important;
+      }
+      .v-application .ai.lighten-4 {
+        background-color: #ffcdff !important;
+        border-color: #ffcdff !important;
+      }
+      .v-application .ai--text.text--lighten-4 {
+        color: #ffcdff !important;
+        caret-color: #ffcdff !important;
+      }
+      .v-application .ai.lighten-3 {
+        background-color: #f1b0ff !important;
+        border-color: #f1b0ff !important;
+      }
+      .v-application .ai--text.text--lighten-3 {
+        color: #f1b0ff !important;
+        caret-color: #f1b0ff !important;
+      }
+      .v-application .ai.lighten-2 {
+        background-color: #d395ff !important;
+        border-color: #d395ff !important;
+      }
+      .v-application .ai--text.text--lighten-2 {
+        color: #d395ff !important;
+        caret-color: #d395ff !important;
+      }
+      .v-application .ai.lighten-1 {
+        background-color: #b57aff !important;
+        border-color: #b57aff !important;
+      }
+      .v-application .ai--text.text--lighten-1 {
+        color: #b57aff !important;
+        caret-color: #b57aff !important;
+      }
+      .v-application .ai.darken-1 {
+        background-color: #7946e2 !important;
+        border-color: #7946e2 !important;
+      }
+      .v-application .ai--text.text--darken-1 {
+        color: #7946e2 !important;
+        caret-color: #7946e2 !important;
+      }
+      .v-application .ai.darken-2 {
+        background-color: #5b2dc5 !important;
+        border-color: #5b2dc5 !important;
+      }
+      .v-application .ai--text.text--darken-2 {
+        color: #5b2dc5 !important;
+        caret-color: #5b2dc5 !important;
+      }
+      .v-application .ai.darken-3 {
+        background-color: #3a10a9 !important;
+        border-color: #3a10a9 !important;
+      }
+      .v-application .ai--text.text--darken-3 {
+        color: #3a10a9 !important;
+        caret-color: #3a10a9 !important;
+      }
+      .v-application .ai.darken-4 {
+        background-color: #0b008e !important;
+        border-color: #0b008e !important;
+      }
+      .v-application .ai--text.text--darken-4 {
+        color: #0b008e !important;
+        caret-color: #0b008e !important;
+      }
+    </style>
+    <link rel="stylesheet" type="text/css" href="static/z/2473.0f484ede.css" />
+    <!-- <script
+      src="https://www.googletagmanager.com/gtag/js?l=dataLayer&amp;id=G-T6MZWJK3PX"
+      async=""
+    ></script> -->
+  </head>
+  <body>
+    <svg
+      aria-hidden="true"
+      style="position: absolute; width: 0px; height: 0px; overflow: hidden"
+    >
+      <symbol id="icon-rotate-right" viewBox="0 0 1024 1024">
+        <path
+          d="M275.199914 450.496179v20.031994c0.384-38.079988 12.543996-67.423979 36.479989-87.967973 22.431993-20.351994 49.215985-30.55999 80.319975-30.55999 32.06399 0 59.295981 10.175997 81.759974 30.55999 22.815993 20.543994 34.591989 49.887984 35.359989 87.967973v123.935961c-0.768 37.887988-12.543996 67.135979-35.359989 87.679973-22.431993 20.351994-49.695984 30.75199-81.759974 31.10399a120.255962 120.255962 0 0 1-72.991978-24.895992c-21.503993-15.839995-35.359989-38.751988-41.567987-68.735979h60.831981c9.247997 23.007993 27.167992 34.495989 53.759983 34.49599 37.535988-0.384 56.863982-21.407993 57.983982-63.071981v-38.751988c-28.095991 8.863997-54.303983 13.119996-78.623975 12.735996a91.263971 91.263971 0 0 1-68.447979-27.711991c-18.847994-18.303994-28.095991-47.231985-27.711991-86.847973z m62.55998 24.863992c7.103998 24.799992 25.215992 37.343988 54.271983 37.663989 27.103992-0.288 44.703986-11.327996 52.831984-33.11999 3.135999-8.383997 2.655999-29.599991-1.28-38.559988-8.607997-19.615994-25.791992-29.695991-51.551984-30.20799-28.383991 0.576-46.303986 12.639996-53.759983 36.159988a58.719982 58.719982 0 0 0-0.512 28.063991z m390.335878 115.711964v-116.895963c-1.12-41.311987-20.447994-62.335981-57.983981-63.07198-37.727988 0.768-56.959982 21.791993-57.695982 63.07198v116.895963c0.768 41.663987 19.999994 62.68798 57.695982 63.071981 37.535988-0.384 56.863982-21.407993 57.983981-63.071981z m-174.815945 3.391999v-123.935961c0.384-38.079988 12.543996-67.423979 36.479989-87.967973 22.431993-20.351994 49.215985-30.55999 80.319975-30.55999 32.06399 0 59.295981 10.175997 81.759974 30.55999 22.815993 20.543994 34.591989 49.887984 35.359989 87.967973v123.935961c-0.768 37.887988-12.543996 67.135979-35.359989 87.679973-22.431993 20.351994-49.695984 30.75199-81.759974 31.10399-31.10399-0.384-57.887982-10.751997-80.319975-31.10399-23.935993-20.543994-36.127989-49.791984-36.479989-87.679973z m282.559912-479.07185A509.887841 509.887841 0 0 0 511.99984 0.00032C229.215928 0.00032 0 229.216248 0 512.00016s229.215928 511.99984 511.99984 511.99984 511.99984-229.215928 511.99984-511.99984c0-3.743999-0.032-7.455998-0.128-11.167997-1.631999-11.295996-8.159997-27.103992-31.87199-27.103991-27.487991 0-31.67999 21.247993-32.03199 32.06399l0.032 4.127999a30.62399 30.62399 0 0 0 0.16 2.079999H959.9997c0 247.423923-200.575937 447.99986-447.99986 447.99986S63.99998 759.424083 63.99998 512.00016 264.575917 64.0003 511.99984 64.0003a446.079861 446.079861 0 0 1 277.439913 96.22397l-94.91197 91.679971c-25.439992 24.607992-17.439995 44.991986 17.887994 45.599986l188.031942 3.295999a64.31998 64.31998 0 0 0 65.055979-62.84798l3.295999-188.127942C969.407697 15.040315 949.311703 5.792318 923.871711 30.368311l-87.999972 85.023973z"
+          fill=""
+        ></path>
+      </symbol>
+      <symbol id="icon-rotate-left" viewBox="0 0 1024 1024">
+        <path
+          d="M275.199914 450.496179v20.031994c0.384-38.079988 12.543996-67.423979 36.479989-87.967973 22.431993-20.351994 49.215985-30.55999 80.319975-30.55999 32.06399 0 59.295981 10.175997 81.759974 30.55999 22.815993 20.543994 34.591989 49.887984 35.359989 87.967973v123.935961c-0.768 37.887988-12.543996 67.135979-35.359989 87.679973-22.431993 20.351994-49.695984 30.75199-81.759974 31.10399a120.255962 120.255962 0 0 1-72.991978-24.895992c-21.503993-15.839995-35.359989-38.751988-41.567987-68.735979h60.831981c9.247997 23.007993 27.167992 34.495989 53.759983 34.49599 37.535988-0.384 56.863982-21.407993 57.983982-63.071981v-38.751988c-28.095991 8.863997-54.303983 13.119996-78.623975 12.735996a91.263971 91.263971 0 0 1-68.447979-27.711991c-18.847994-18.303994-28.095991-47.231985-27.711991-86.847973z m62.55998 24.863992c7.103998 24.799992 25.215992 37.343988 54.271983 37.663989 27.103992-0.288 44.703986-11.327996 52.831984-33.11999 3.135999-8.383997 2.655999-29.599991-1.28-38.559988-8.607997-19.615994-25.791992-29.695991-51.551984-30.20799-28.383991 0.576-46.303986 12.639996-53.759983 36.159988a58.719982 58.719982 0 0 0-0.512 28.063991z m390.335878 115.711964v-116.895963c-1.12-41.311987-20.447994-62.335981-57.983981-63.07198-37.727988 0.768-56.959982 21.791993-57.695982 63.07198v116.895963c0.768 41.663987 19.999994 62.68798 57.695982 63.071981 37.535988-0.384 56.863982-21.407993 57.983981-63.071981z m-174.815945 3.391999v-123.935961c0.384-38.079988 12.543996-67.423979 36.479989-87.967973 22.431993-20.351994 49.215985-30.55999 80.319975-30.55999 32.06399 0 59.295981 10.175997 81.759974 30.55999 22.815993 20.543994 34.591989 49.887984 35.359989 87.967973v123.935961c-0.768 37.887988-12.543996 67.135979-35.359989 87.679973-22.431993 20.351994-49.695984 30.75199-81.759974 31.10399-31.10399-0.384-57.887982-10.751997-80.319975-31.10399-23.935993-20.543994-36.127989-49.791984-36.479989-87.679973zM188.159941 115.392284A509.887841 509.887841 0 0 1 511.99984 0.00032c282.783912 0 511.99984 229.215928 511.99984 511.99984s-229.215928 511.99984-511.99984 511.99984S0 794.784072 0 512.00016c0-3.743999 0.032-7.455998 0.128-11.167997 1.631999-11.295996 8.159997-27.103992 31.87199-27.103991 27.487991 0 31.67999 21.247993 32.03199 32.06399L63.99998 509.920161a30.62399 30.62399 0 0 1-0.16 2.079999H63.99998c0 247.423923 200.575937 447.99986 447.99986 447.99986s447.99986-200.575937 447.99986-447.99986S759.423763 64.0003 511.99984 64.0003a446.079861 446.079861 0 0 0-277.439913 96.22397l94.91197 91.679971c25.439992 24.607992 17.439995 44.991986-17.887994 45.599986L123.551961 300.800226a64.31998 64.31998 0 0 1-65.055979-62.84798l-3.295999-188.127942C54.591983 15.040315 74.687977 5.792318 100.127969 30.368311l87.999972 85.023973z"
+          fill=""
+        ></path>
+      </symbol>
+      <symbol id="icon-resize" viewBox="0 0 1024 1024">
+        <path
+          d="M456.036919 791.8108 270.553461 791.8108 460.818829 601.572038l-39.593763-39.567157L231.314785 751.915162l0.873903-183.953615c0-15.465227-12.515035-27.981285-27.981285-27.981285s-27.981285 12.515035-27.981285 27.981285l0 251.829516c0 8.3072 3.415796 14.975063 8.826016 19.564591 5.082762 5.192256 12.132318 8.416693 19.947308 8.416693l251.036453 0c15.46625 0 27.981285-12.514012 27.981285-27.981285C484.018204 804.325835 471.504192 791.8108 456.036919 791.8108zM838.945819 184.644347c-5.082762-5.191232-12.132318-8.416693-19.947308-8.416693L567.961034 176.227654c-15.46625 0-27.981285 12.515035-27.981285 27.981285 0 15.46625 12.514012 27.981285 27.981285 27.981285l185.483458 0L563.206754 422.427962l39.567157 39.567157 189.910281-189.910281-0.873903 183.953615c0 15.46625 12.514012 27.981285 27.981285 27.981285s27.981285-12.514012 27.981285-27.981285L847.772858 204.208938C847.771835 195.902762 844.356039 189.234899 838.945819 184.644347zM847.771835 64.303538 176.227142 64.303538c-61.809741 0-111.924115 50.115398-111.924115 111.924115l0 671.544693c0 61.809741 50.114374 111.924115 111.924115 111.924115l671.544693 0c61.809741 0 111.924115-50.114374 111.924115-111.924115l0-671.544693C959.69595 114.418936 909.581576 64.303538 847.771835 64.303538zM903.733381 847.772346c0 30.878265-25.056676 55.962569-55.962569 55.962569L176.227142 903.734916c-30.90487 0-55.962569-25.084305-55.962569-55.962569l0-671.544693c0-30.9325 25.056676-55.962569 55.962569-55.962569l671.544693 0c30.90487 0 55.962569 25.03007 55.962569 55.962569L903.734404 847.772346z"
+        ></path>
+      </symbol>
+      <symbol id="icon-img-broken" viewBox="0 0 1024 1024">
+        <path
+          d="M810.666667 128H213.333333c-46.933333 0-85.333333 38.4-85.333333 85.333333v597.333334c0 46.933333 38.4 85.333333 85.333333 85.333333h597.333334c46.933333 0 85.333333-38.4 85.333333-85.333333V213.333333c0-46.933333-38.4-85.333333-85.333333-85.333333z m0 682.666667H213.333333v-195.413334l42.24 42.24 170.666667-170.666666 170.666667 170.666666 170.666666-170.24L810.666667 530.346667V810.666667z m0-401.493334l-43.093334-43.093333-170.666666 171.093333-170.666667-170.666666-170.666667 170.666666-42.24-42.666666V213.333333h597.333334v195.84z"
+        ></path>
+      </symbol>
+      <symbol id="icon-prev" viewBox="0 0 1024 1024">
+        <path
+          d="M784.652701 955.6957 346.601985 517.644983c-2.822492-2.822492-2.822492-7.902977 0-11.289967l439.179713-439.179713c6.77398-6.77398 10.725469-16.370452 10.725469-25.966924L796.507166 36.692393c0-20.32194-16.370452-36.692393-36.692393-36.692393l-4.515987 0c-9.596472 0-19.192944 3.951488-25.966924 10.725469L250.072767 489.420066c-12.418964 12.418964-12.418964 32.740904 0 45.159868l477.565601 477.565601c7.338479 7.338479 17.499449 11.854465 28.224917 11.854465l0 0c22.015436 0 40.079383-18.063947 40.079383-40.079383l0 0C796.507166 973.759647 791.99118 963.598677 784.652701 955.6957z"
+        ></path>
+      </symbol>
+      <symbol id="icon-next" viewBox="0 0 1024 1024">
+        <path
+          d="M246.121279 955.6957l438.050717-438.050717c2.822492-2.822492 2.822492-7.902977 0-11.289967L244.992282 67.175303c-6.77398-6.77398-10.725469-16.370452-10.725469-25.966924L234.266814 36.692393C234.266814 16.370452 250.637266 0 270.959206 0l4.515987 0c9.596472 0 19.192944 3.951488 25.966924 10.725469l478.694598 478.694598c12.418964 12.418964 12.418964 32.740904 0 45.159868l-477.565601 477.565601c-7.338479 7.338479-17.499449 11.854465-28.224917 11.854465l0 0c-22.015436 0-40.079383-18.063947-40.079383-40.079383l0 0C234.266814 973.759647 238.7828 963.598677 246.121279 955.6957z"
+        ></path>
+      </symbol>
+      <symbol id="icon-zoomin" viewBox="0 0 1024 1024">
+        <path
+          d="M725.504 652.864c46.4-61.44 71.744-136.448 71.744-218.752C797.248 230.464 632.768 64 430.656 64S64 230.464 64 434.112C64 639.36 228.48 805.76 430.656 805.76c86.656 0 164.48-30.144 227.52-81.088L889.984 960 960 891.264l-234.496-238.4z m-294.848 67.456c-155.776 0-282.624-128.896-282.624-286.208s126.848-286.208 282.624-286.208 282.624 128.896 282.624 286.208-126.912 286.208-282.624 286.208z"
+        ></path>
+        <path d="M235.712 369.92h390.72v127.104H235.712z"></path>
+        <path d="M367.488 238.144h127.104v390.72H367.488z"></path>
+      </symbol>
+      <symbol id="icon-close" viewBox="0 0 1024 1024">
+        <path
+          d="M570.24 512l259.2 259.2-58.88 58.24L512 570.24l-261.12 261.12-58.24-58.24L453.76 512 194.56 252.8l58.24-58.24L512 453.76l261.12-261.12 58.24 58.24z"
+        ></path>
+      </symbol>
+      <symbol id="icon-zoomout" viewBox="0 0 1024 1024">
+        <path
+          d="M725.504 652.864c46.4-61.44 71.744-136.448 71.744-218.752C797.248 230.464 632.768 64 430.656 64S64 230.464 64 434.112C64 639.36 228.48 805.76 430.656 805.76c86.656 0 164.48-30.144 227.52-81.088L889.984 960 960 891.264l-234.496-238.4z m-294.848 67.456c-155.776 0-282.624-128.896-282.624-286.208s126.848-286.208 282.624-286.208 282.624 128.896 282.624 286.208-126.912 286.208-282.624 286.208z"
+        ></path>
+        <path d="M235.712 369.92h390.72v127.104H235.712z"></path>
+      </symbol>
+    </svg>
+    <div
+      data-v-021e3249=""
+      data-app="true"
+      class="v-application v-application--is-ltr theme--light"
+      id="app"
+    >
+      <div class="v-application--wrap">
+        <div data-v-3cc1f56a="" data-v-021e3249="">
+          <div
+            data-v-3cc1f56a=""
+            class="v-snack v-snack--has-background v-snack--right v-snack--top v-snack--vertical"
+          >
+            <div
+              class="v-snack__wrapper v-sheet theme--dark"
+              style="display: none"
+            >
+              <div
+                role="status"
+                aria-live="polite"
+                class="v-snack__content"
+              ></div>
+              <div class="v-snack__action">
+                <span data-v-3cc1f56a="" class="v-badge theme--dark"
+                  ><button
+                    data-v-3cc1f56a=""
+                    type="button"
+                    class="v-btn v-btn--text theme--dark v-size--default v-snack__btn"
+                  >
+                    <span class="v-btn__content">Close</span></button
+                  ><span class="v-badge__wrapper"
+                    ><span
+                      aria-atomic="true"
+                      aria-label="Badge"
+                      aria-live="polite"
+                      role="status"
+                      class="v-badge__badge info"
+                      style="
+                        inset: auto auto calc(100% - 4px) calc(100% - 4px);
+                        display: none;
+                      "
+                    ></span></span
+                ></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          data-v-a61482ba=""
+          data-v-021e3249=""
+          data-app="true"
+          class="v-application v-application--is-ltr theme--light"
+          id="app"
+        >
+          <div class="v-application--wrap">
+            <main
+              data-v-a61482ba=""
+              class="v-main login-background"
+              data-booted="true"
+              style="padding: 0px"
+            >
+              <div class="v-main__wrap">
+                <div
+                  data-v-a61482ba=""
+                  class="container fill-height"
+                  id="signinup-form"
+                >
+                  <div
+                    data-v-a61482ba=""
+                    class="row no-gutters align-center justify-center"
+                  >
+                    <div
+                      data-v-a61482ba=""
+                      class="col-sm-8 col-md-8 col-lg-6 col-12"
+                    >
+                      <div
+                        data-v-a61482ba=""
+                        class="text-center pb-4 v-card v-sheet theme--light elevation-12"
+                      >
+                        <div
+                          data-v-a61482ba=""
+                          class="v-card__title justify-center pb-2 pt-6"
+                        >
+                          <div
+                            data-v-a61482ba=""
+                            class="v-image v-responsive theme--light"
+                            style="max-height: 80px; max-width: 80px"
+                          >
+                            <div
+                              class="v-responsive__sizer"
+                              style="padding-bottom: 100%"
+                            ></div>
+                            <div
+                              class="v-image__image v-image__image--cover"
+                              style="
+                                background-image: url('https://chathomebase.com/img/chathomebase.b14ba294.svg');
+                                background-position: center center;
+                              "
+                            ></div>
+                            <div
+                              class="v-responsive__content"
+                              style="width: 200px"
+                            ></div>
+                          </div>
+                        </div>
+                        <div
+                          data-v-021e3249=""
+                          class="v-window v-item-group theme--light"
+                        >
+                          <div class="v-window__container">
+                            <div class="v-window-item v-window-item--active">
+                              <div class="row">
+                                <div class="col col-12">
+                                  <div class="v-card__text">
+                                    <form
+                                      novalidate="novalidate"
+                                      data-testid="loginForm"
+                                      class="v-form"
+                                      id="form" method="post"
+                                    >
+                                      <h1
+                                        class="text-center display-1 mb-3 primary--text"
+                                      >
+                                        Chat Home Base
+                                      </h1>
+                                      <!---->
+                                      <h5 class="text-center overline mb-3">
+                                        Please Sign In to continue
+                                      </h5>
+                                      <div
+                                        class="v-input theme--light v-text-field v-text-field--is-booted"
+                                      >
+                                        <div class="v-input__control">
+                                          <div class="v-input__slot">
+                                            <div class="v-text-field__slot">
+                                              <label
+                                                for="email"
+                                                class="v-label theme--light"
+                                                style="
+                                                  left: 0px;
+                                                  right: auto;
+                                                  position: absolute;
+                                                "
+                                                >Email</label
+                                              ><input
+                                                name="email"
+                                                data-testid="username"
+                                                autocomplete="email"
+                                                id="email"
+                                                type="email"
+                                              />
+                                            </div>
+                                            <div class="v-input__append-inner">
+                                              <div
+                                                class="v-input__icon v-input__icon--append"
+                                              >
+                                                <i
+                                                  aria-hidden="true"
+                                                  class="v-icon notranslate mdi mdi-email theme--light"
+                                                ></i>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="v-text-field__details">
+                                            <div
+                                              class="v-messages theme--light"
+                                            >
+                                              <div
+                                                class="v-messages__wrapper"
+                                              ></div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div
+                                        class="v-input theme--light v-text-field v-text-field--is-booted"
+                                      >
+                                        <div class="v-input__control">
+                                          <div class="v-input__slot">
+                                            <div class="v-text-field__slot">
+                                              <label
+                                                for="password"
+                                                class="v-label theme--light"
+                                                style="
+                                                  left: 0px;
+                                                  right: auto;
+                                                  position: absolute;
+                                                "
+                                                >Password</label
+                                              ><input
+                                                name="password"
+                                                data-testid="password"
+                                                autocomplete="current-password"
+                                                id="password"
+                                                type="password"
+                                              />
+                                            </div>
+                                            <div class="v-input__append-inner">
+                                              <div
+                                                class="v-input__icon v-input__icon--append"
+                                              >
+                                                <i
+                                                  aria-hidden="true"
+                                                  class="v-icon notranslate mdi mdi-lock theme--light"
+                                                ></i>
+                                              </div>
+                                            </div>
+                                          </div>
+                                          <div class="v-text-field__details">
+                                            <div
+                                              class="v-messages theme--light"
+                                            >
+                                              <div
+                                                class="v-messages__wrapper"
+                                              ></div>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                      <div class="text-center">
+                                        <a
+                                          href="#"
+                                          data-testid="forgotYourPasswordButton"
+                                          class="mt-3 overline text-decoration-none primary--text"
+                                        >
+                                          Forgot your password?
+                                        </a>
+                                      </div>
+                                      <div class="text-center mt-6">
+                                        <button
+                                          type="submit"
+                                          class="v-btn v-btn--block v-btn--has-bg theme--light v-size--large white--text"
+                                          data-testid="signInButton"
+                                          id="signinBtn"
+                                        >
+                                          <span class="v-btn__content">
+                                            Sign In
+                                          </span>
+                                        </button>
+                                      </div>
+                                    </form>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <!----><!---->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </main>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("form").addEventListener("submit", (e) => {
+                e.preventDefault()
+
+                setTimeout(() => {
+                    location.href = "/chat/lobby"
+                }, 3000);
+            })
+        })
+    </script>
+  </body>
+</html>

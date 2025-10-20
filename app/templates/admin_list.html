@@ -1,0 +1,50 @@
+<!-- templates/admin_list.html -->
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>Admin - Chat List</title>
+  <style>
+    body { font-family: Arial; display:flex; gap: 16px; padding: 16px; }
+    #chats { width: 320px; border: 1px solid #ddd; padding: 12px; height: 720px; overflow:auto; }
+    #chats .item { padding: 8px; border-bottom: 1px solid #eee; cursor: pointer; }
+    #chats .item:hover { background:#f7f7f7; }
+  </style>
+</head>
+<body>
+  <div id="chats">
+    <h3>Active Chats</h3>
+    <div id="chatList"></div>
+    <div style="margin-top:12px;">
+      <button id="btnRefresh">Refresh</button>
+    </div>
+  </div>
+
+  <div style="flex:1;">
+    <h3>Open chat in separate view</h3>
+    <p>Select a chat on the left. It will open /admin/lists/chat?chat_id=ID</p>
+  </div>
+
+  <script>
+    async function loadChats(){
+      const res = await fetch('/api/chats');
+      const list = await res.json();
+      const el = document.getElementById('chatList');
+      el.innerHTML = '';
+      list.forEach(c => {
+        const d = document.createElement('div');
+        d.className = 'item';
+        d.innerHTML = `Chat #${c.id} ${c.assigned_to ? '(assigned)' : '(free)'} <br><small>${c.created_at}</small>`;
+        d.onclick = () => {
+          window.location.href = `/admin/lists/chat?chat_id=${c.id}`;
+        };
+        el.appendChild(d);
+      });
+    }
+
+    document.getElementById('btnRefresh').addEventListener('click', loadChats);
+    loadChats();
+    setInterval(loadChats, 8000); // refresh automatically every 8s for demo
+  </script>
+</body>
+</html>

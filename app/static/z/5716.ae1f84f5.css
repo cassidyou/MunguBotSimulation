@@ -1,0 +1,55 @@
+@keyframes flash-55e590b5 {
+    0% {
+        opacity: .5
+    }
+
+    99% {
+        opacity: 1
+    }
+
+    to {
+        opacity: .5
+    }
+}
+
+.chat-claimed-notification[data-v-55e590b5] {
+    position: fixed;
+    inset: 0;
+    z-index: 1000
+}
+
+.chat-claimed-notification .back-fill[data-v-55e590b5] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .8);
+    animation: flash-55e590b5 1s linear infinite;
+    z-index: 1
+}
+
+.chat-claimed-notification .front-title[data-v-55e590b5] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 2
+}
+
+.fade-enter-active[data-v-55e590b5],
+.fade-leave-active[data-v-55e590b5] {
+    transition: opacity .3s;
+    opacity: 1
+}
+
+.fade-enter[data-v-55e590b5],
+.fade-leave-to[data-v-55e590b5] {
+    opacity: 0
+}
+
+.smart-chat-window-container[data-v-5c1890b3] {
+    height: calc(var(--window_height_1percent, 1vh)*100 - var(--admin_chat_tabs_height, 0px));
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 48px
+}

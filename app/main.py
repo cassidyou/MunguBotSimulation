@@ -1,6 +1,7 @@
 # main.py
 import json
 import uuid
+from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Request
 from fastapi.responses import HTMLResponse, JSONResponse
@@ -15,8 +16,14 @@ from app.models import Base, ChatSession, Message
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
-app.mount("/static", StaticFiles(directory="app/static"), name="static")
-templates = Jinja2Templates(directory="templates")
+
+# app.mount("/static", StaticFiles(directory="static"), name="static")
+# templates = Jinja2Templates(directory="templates")
+
+BASE_DIR = Path(__file__).resolve().parent
+
+app.mount("/static", StaticFiles(directory=str(BASE_DIR / "static")), name="static")
+templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 
 executor = ThreadPoolExecutor(max_workers=4)
 
@@ -232,12 +239,13 @@ async def root():
     return HTMLResponse("Use /chat/claimed for user or /admin/lists for admin")
 
 @app.get('/login')
-async def login():
-    return HTMLResponse(open("static/login.html").read())
+async def login(request: Request):
+    # return HTMLResponse(open("static/login.html").read())
+    return templates.TemplateResponse("login.html", {"request": request})
 
 @app.get('/chat/lobby')
-async def lobby():
-    return HTMLResponse(open("static/lobby.html").read())
+async def lobby(request: Request):
+    return templates.TemplateResponse("lobby.html", {"request": request})
 
 # user chat page
 @app.get("/chat/claimed", response_class=HTMLResponse)

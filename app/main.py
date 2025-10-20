@@ -8,14 +8,14 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi.concurrency import run_in_threadpool
 from sqlalchemy.orm import Session
-from database import SessionLocal, engine
-from models import Base, ChatSession, Message
+from app.database import SessionLocal, engine
+from app.models import Base, ChatSession, Message
 
 # create DB tables
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
-app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/static", StaticFiles(directory="app/static"), name="static")
 templates = Jinja2Templates(directory="templates")
 
 executor = ThreadPoolExecutor(max_workers=4)

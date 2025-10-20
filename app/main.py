@@ -248,7 +248,7 @@ async def lobby(request: Request):
     return templates.TemplateResponse("lobby.html", {"request": request})
 
 # user chat page
-@app.get("/chat/claimed", response_class=HTMLResponse)
+@app.get("/chat/claimed")
 async def user_chat(request: Request):
     # Check if user has a user_identifier cookie
     user_identifier = request.cookies.get("user_identifier")
@@ -257,7 +257,7 @@ async def user_chat(request: Request):
     return templates.TemplateResponse("user_chat.html", {"request": request, "user_identifier": user_identifier})
 
 # admin lists page
-@app.get("/admin/lists", response_class=HTMLResponse)
+@app.get("/admin/lists")
 async def admin_lists(request: Request):
     return templates.TemplateResponse("admin_list.html", {"request": request})
 

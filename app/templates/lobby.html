@@ -3724,12 +3724,38 @@
         <div id="stepsContainer">
             <div class="step">
                 Step 1 of the form
+                <button 
+                  class="btn btn-primary" 
+                  data-v-1dc6a4f0=""
+                  type="button"
+                
+                  class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--x-large"
+                  >
+                <span class="v-btn__content"> Next </span>
+              </button>
             </div>
             <div class="step">
                 Step 2 of the form
+                <button 
+                  class="btn btn-primary" 
+                  data-v-1dc6a4f0=""
+                  type="button"
+                  
+                  class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--x-large"
+                  >
+                <span class="v-btn__content"> Next </span>
+              </button>
             </div>
             <div class="step">
                 Step 3 of the form
+                <button 
+                    class="btn btn-primary" 
+                    data-v-1dc6a4f0=""
+                    type="button"
+                    class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--x-large"
+                    >
+                  <span class="v-btn__content"> Next </span>
+                </button>
             </div>
         </div>
         <div class="modal-footer">
@@ -3740,15 +3766,6 @@
               class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--x-large blue-grey lighten-4"
               id="closeLobby">
               <span class="v-btn__content"> Close </span>
-          </button>
-          <button 
-              class="btn btn-primary" 
-              data-v-1dc6a4f0=""
-              type="button"
-              id="nextBtn"
-              class="v-btn v-btn--is-elevated v-btn--has-bg theme--light v-size--x-large"
-              >
-            <span class="v-btn__content"> Next </span>
           </button>
         </div>
       </div>
@@ -3779,8 +3796,11 @@
     </script>
     <script>
         const steps = document.querySelectorAll(".step");
-        const nextBtn = document.getElementById("nextBtn");
         const closeBtn = document.getElementById("closeLobby");
+        const modal = document.querySelector("#stepsContainer");
+        const nextBtns = modal.querySelectorAll("button");
+
+        console.log(nextBtns)
 
         let currentStep = 0;
 
@@ -3790,16 +3810,19 @@
 
             // If it's the last step, show Close and hide Next
             const lastStep = index === steps.length - 1;
-            nextBtn.hidden = lastStep;
+            
             closeBtn.hidden = !lastStep;
         }
 
-        nextBtn.addEventListener("click", () => {
-            if (currentStep < steps.length - 1) {
-            currentStep++;
-            showStep(currentStep);
-            }
-        });
+        nextBtns.forEach(btn => {
+          btn.addEventListener("click", () => {
+              if (currentStep < steps.length - 1) {
+              currentStep++;
+              showStep(currentStep);
+              }
+          });
+
+        })
 
         // Initialize first step
         showStep(currentStep);
